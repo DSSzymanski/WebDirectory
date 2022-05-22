@@ -93,10 +93,10 @@ const sortData = (data) => {
     */
     for(const location in data){
         data[location].sort((a, b) => {
-            if(a.number < b.number) {
+            if(a.number.slice(-4) < b.number.slice(-4)) {
                 return -1;
             }
-            if (a.number > b.number) {
+            if (a.number.slice(-4) > b.number.slice(-4)) {
                 return 1;
             }
             return 0;
