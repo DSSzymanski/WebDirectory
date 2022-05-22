@@ -50,12 +50,15 @@ const generateLocationDiv = (location_name, data) => {
     header_div.className = "header";
     location_div.appendChild(header_div);
 
-    for (const header_text of ["Phone #", "Description"]) {
-        let header = document.createElement("div");
-        header_div.appendChild(header);
-        header.innerText = header_text;
-        header.className = "header-text"
-    }
+    let header1 = document.createElement("div");
+    header_div.appendChild(header1);
+    header1.innerText = "Phone #";
+    header1.className = "header-text phone";
+
+    let header2 = document.createElement("div");
+    header_div.appendChild(header2);
+    header2.innerText = "Description";
+    header2.className = "header-text description";
 
     //populate data rows
     for (const phone_obj of data) {
@@ -65,7 +68,7 @@ const generateLocationDiv = (location_name, data) => {
 
         //phone number
         let number_data = document.createElement("div");
-        number_data.className = "phone-number";
+        number_data.className = "phone phone-number";
         number_data.innerText = phone_obj["number"];
         data_row.appendChild(number_data);
 
