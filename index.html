@@ -2,12 +2,22 @@
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <script src="test_data.js" type="text/javascript"></script>
+        <script src="real_data.js" type="text/javascript"></script>
+        <script src="search_bar_functionality.js" type="text/javascript"></script>
         <script src="index.js" type="text/javascript"></script>
+        <script>
+            const startUp = () => {
+                loadElements(data);
+                initSearchBar();
+            }
+        </script>
         <link rel="stylesheet" href="index.css" />
         <title>Directory Search</title>
     </head>
-    <body onload="loadElements(data)">
+    <body onload="startUp()">
+        <div id="search-bar">
+            <input id="search-input" value="" type="text" placeholder="Search">
+        </div>
         <div id="root"></div>
     </body>
 </html>

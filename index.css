@@ -2,6 +2,10 @@ body {
     background-color: darkgray;
 }
 
+.none {
+    display: none !important;
+}
+
 #root {
     display: flex;
     flex-wrap: wrap;
