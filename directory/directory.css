@@ -15,20 +15,26 @@ body {
 }
 
 #root {
-    justify-content: center;
+    align-content: center;
     margin-top: 10px;
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: column wrap;
     gap: 10px;
+    height: 1500px;
 }
+
+.location-container:nth-of-type(3n+1) { order: 1; }
+.location-container:nth-of-type(3n+2) { order: 2; }
+.location-container:nth-of-type(3n+3) { order: 3; }
 
 .none {
     display: none !important;
 }
 
 .location-container {
+    width: 30%;
+    position: relative;
     background-color: white;
-    height: 100%;
     border-radius: 25px;
     padding: 0 7px 7px 7px;
 }
