@@ -9,16 +9,22 @@
     </head>
     <body>
         <div id="root">
-            <div class="add-data-container">
+            <div class="data-container">
                 <div class="header-container">
                     <h3>Add Phone Number</h3>
-                    <button class="add_button" id="add"></button>
+                    <button class="add_button" id="add" onclick="generateNewAddBox()">+</button>
+                </div>
+                <div class="box-container" id="add-container">
+
                 </div>
             </div>
-            <div class="remove-data-container">
+            <div class="data-container">
                 <div class="header-container">
                     <h3>Remove Phone Number</h3>
-                    <button class="add_button" id="remove"></button>
+                    <button class="add_button" id="remove" onclick="generateNewRemoveBox()">+</button>
+                </div>
+                <div class="box-container" id="remove-container">
+
                 </div>
             </div>
         </div>

@@ -1,0 +1,11 @@
+.header-container {
+    display: flex;
+}
+
+#root {
+    display: flex;
+}
+
+.data-container {
+    width: 45%;
+}
