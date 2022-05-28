@@ -1,11 +1,30 @@
-.header-container {
-    display: flex;
+body {
+    background-color: darkgray;
 }
 
-#root {
+#root, .header-container, .button-container {
     display: flex;
+    justify-content: center;
 }
 
-.data-container {
+input, select {
+    margin-right: 5px;
+}
+
+.box-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.main-container {
     width: 45%;
 }

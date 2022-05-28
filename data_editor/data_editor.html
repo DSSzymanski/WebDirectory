@@ -9,22 +9,22 @@
     </head>
     <body>
         <div id="root">
-            <div class="data-container">
+            <div class="main-container">
                 <div class="header-container">
-                    <h3>Add Phone Number</h3>
-                    <button class="add_button" id="add" onclick="generateNewAddBox()">+</button>
+                    <h3>Phone Numbers to Add</h3>
                 </div>
-                <div class="box-container" id="add-container">
-
+                <div class="box-container" id="add-container"></div>
+                <div class="button-container">
+                    <button id="add" onclick="generateNewAddBox()">Add Another Entry</button>
                 </div>
             </div>
-            <div class="data-container">
+            <div class="main-container">
                 <div class="header-container">
-                    <h3>Remove Phone Number</h3>
-                    <button class="add_button" id="remove" onclick="generateNewRemoveBox()">+</button>
+                    <h3>Phone Numbers to Remove</h3>
                 </div>
-                <div class="box-container" id="remove-container">
-
+                <div class="box-container" id="remove-container"></div>
+                <div class="button-container">
+                    <button id="remove" onclick="generateNewRemoveBox(data)">Remove Another Entry</button>
                 </div>
             </div>
         </div>

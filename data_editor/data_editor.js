@@ -6,7 +6,7 @@ const generateNewRemoveBox = (data) => {
     remove_container.appendChild(new_box);
 
     //setup box
-    new_box.className = "remove-box";
+    new_box.className = "box remove-box";
 
     //add select element to remove box
     let select_entry = document.createElement("select");
@@ -41,7 +41,7 @@ const generateNewAddBox = () => {
     add_container.appendChild(new_box);
 
     //setup box
-    new_box.className = "add-box";
+    new_box.className = "box add-box";
 
     //add location textbox
     new_box.appendChild(generateTextInputElement("Location/Unit"));
