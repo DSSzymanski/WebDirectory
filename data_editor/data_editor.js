@@ -1,3 +1,26 @@
+const getNewDataEntries = () => {
+    /**
+     * Generate and return array of formatted strings containing the data of all
+     * the new phone numbers created on the web page.
+     */
+    let new_data_entries = [];
+
+    //get all boxes for new phone numbers
+    const data_boxes = document.getElementsByClassName("add-box");
+    for (const data_box of data_boxes) {
+        let data_entry = "";
+        //get values from input boxes
+        for (let i = 0; i < 3; i++) {
+            data_entry = data_entry + data_box.childNodes[i].value.trim() + ",";
+        }
+        //remove trailing comma
+        data_entry = data_entry.slice(0, -1);
+        new_data_entries.push(data_entry);
+    }
+
+    return new_data_entries;
+}
+
 const generateNewRemoveBox = (data) => {
     const remove_container = document.getElementById("remove-container");
 
