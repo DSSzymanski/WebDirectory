@@ -1,3 +1,50 @@
+const generateNewJSFile = (data) => {
+    //remove entries from data
+    for (const entry of getRemoveDataEntries()) {
+        //check to skip if the selected entry is the placeholder
+        if(data.indexOf(entry) !== -1){
+            data.splice(data.indexOf(entry), 1);
+        }
+    }
+
+    //add new entries to data
+    for (const entry of getNewDataEntries()) {
+        if(entry.split(',').length === 3) {
+            data.push(entry);
+        }
+    }
+
+    //sort data by extension
+    data.sort((a, b) => {
+        if(a.split(',')[1].slice(-4) < b.split(',')[1].slice(-4)) {
+            return -1;
+        }
+        if (a.split(',')[1].slice(-4) > b.split(',')[1].slice(-4)) {
+            return 1;
+        }
+        return 0;
+    })
+
+}
+
+const getRemoveDataEntries = () => {
+    /**
+     * Generate and return array of entry strings to remove from the JS file.
+     */
+    let remove_data_entries = [];
+
+    //get remove boxes
+    const data_boxes = document.getElementsByClassName("remove-box");
+
+    //get values from boxes
+    for (const data_box of data_boxes) {
+        remove_data_entries.push(data_box.firstChild.value);
+    }
+
+    return remove_data_entries;
+}
+
+
 const getNewDataEntries = () => {
     /**
      * Generate and return array of formatted strings containing the data of all
@@ -40,10 +87,23 @@ const generateNewRemoveBox = (data) => {
     init_option_element.innerText = "Select phone entry to remove.";
     select_entry.appendChild(init_option_element);
 
+    //sort data by phone extension
+    data.sort((a, b) => {
+        if(a.split(',')[1].slice(-4) < b.split(',')[1].slice(-4)) {
+            return -1;
+        }
+        if (a.split(',')[1].slice(-4) > b.split(',')[1].slice(-4)) {
+            return 1;
+        }
+        return 0;
+    })
+
     //populate select element
     for (const phone_entry of data) {
         let option_element = document.createElement("option");
-        option_element.innerText = phone_entry;
+        const phone_str = phone_entry.split(',')
+        option_element.innerText = phone_str[1] + " - " + phone_str[2];
+        option_element.value = phone_entry;
         select_entry.appendChild(option_element);
     }
 
