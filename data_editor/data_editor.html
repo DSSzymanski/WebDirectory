@@ -2,33 +2,39 @@
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <script src="../data/test_data.js" type="text/javascript"></script>
+        <script src="../data/real_data.js" type="text/javascript"></script>
         <script src="data_editor.js" type="text/javascript"></script>
         <link rel="stylesheet" href="data_editor.css" />
         <title>Data Editor</title>
     </head>
     <body>
         <div id="root">
-            <div class="main-container">
-                <div class="header-container">
-                    <h3>Phone Numbers to Add</h3>
+            <div id="container-container">
+                <div class="main-container">
+                    <div class="header-container">
+                        <h3>Phone Numbers to Add</h3>
+                    </div>
+                    <div class="box-container" id="add-container"></div>
+                    <div class="button-container">
+                        <button id="add" onclick="generateNewAddBox()">Add Another Entry</button>
+                    </div>
                 </div>
-                <div class="box-container" id="add-container"></div>
-                <div class="button-container">
-                    <button id="add" onclick="generateNewAddBox()">Add Another Entry</button>
+                <div class="main-container">
+                    <div class="header-container">
+                        <h3>Phone Numbers to Remove</h3>
+                    </div>
+                    <div class="box-container" id="remove-container"></div>
+                    <div class="button-container">
+                        <button id="remove" onclick="generateNewRemoveBox(data)">Remove Another Entry</button>
+                    </div>
                 </div>
             </div>
-            <div class="main-container">
-                <div class="header-container">
-                    <h3>Phone Numbers to Remove</h3>
-                </div>
-                <div class="box-container" id="remove-container"></div>
-                <div class="button-container">
-                    <button id="remove" onclick="generateNewRemoveBox(data)">Remove Another Entry</button>
-                </div>
+            <div class="submit-div button-container">
+                <button id="submit" onclick="generateNewJSFile(data)">Generate File</button>
             </div>
-            <div class="submit-div">
-                <button id="submit" onclick="getNewDataEntries()">Generate File</button>
+            <div id="text-container" style="display: none;">
+                
+                <pre id="text"></pre>
             </div>
         </div>
     </body>

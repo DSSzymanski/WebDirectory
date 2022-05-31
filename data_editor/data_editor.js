@@ -25,6 +25,22 @@ const generateNewJSFile = (data) => {
         return 0;
     })
 
+    putDataOnScreen(data);
+    return data;
+}
+
+const putDataOnScreen = (data) => {
+    const header_str = "const data = [\n" +
+        "\t// location name | Phone # | Description\n";
+    const footer_str = ']';
+    let data_str = "";
+
+    for (const entry of data) {
+        data_str += "\t" + entry + ",\n";
+    }
+
+    document.getElementById('text').innerText = header_str + data_str + footer_str;
+    document.getElementById('text-container').setAttribute("style", "display: flex");
 }
 
 const getRemoveDataEntries = () => {
