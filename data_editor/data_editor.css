@@ -1,0 +1,30 @@
+body {
+    background-color: darkgray;
+}
+
+#container-container, .header-container, .button-container {
+    display: flex;
+    justify-content: center;
+}
+
+input, select {
+    margin-right: 5px;
+}
+
+.box-container,  #text-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.main-container {
+    width: 45%;
+}

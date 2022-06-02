@@ -19,27 +19,31 @@ const updatePage = () => {
         for (const container of all_location_containers) {
             //used to track remaining phone numbers in container that are not none
             let containerFlag = 0;
-            
-            for (let i = 1; i < container.lastChild.childNodes.length; i++){
-                //tracks individual phone numbers data to be set to none
-                let phoneFlag = 0;
-                phoneFlag += searchNumber(search_bar_text, container.lastChild.childNodes[i].firstChild.textContent);
-                phoneFlag += searchText(search_bar_text, container.lastChild.childNodes[i].lastChild.textContent);
-                
-                containerFlag += phoneFlag;
+            //check if search text is a unit/location name
+            let unitFlag = container.firstChild.innerText.toUpperCase().includes(search_bar_text.toUpperCase());
 
-                if (phoneFlag === 0) {
-                    container.lastChild.childNodes[i].className = phone_number_row_initial_class_name + " " + none_class_name;
+            if (unitFlag === false) {
+                for (let i = 1; i < container.lastChild.childNodes.length; i++){
+                    //tracks individual phone numbers data to be set to none
+                    let phoneFlag = 0;
+                    phoneFlag += searchNumber(search_bar_text, container.lastChild.childNodes[i].firstChild.textContent);
+                    phoneFlag += searchText(search_bar_text, container.lastChild.childNodes[i].lastChild.textContent);
+
+                    containerFlag += phoneFlag;
+
+                    if (phoneFlag === 0) {
+                        container.lastChild.childNodes[i].className = phone_number_row_initial_class_name + " " + none_class_name;
+                    }
+                    else {
+                        container.lastChild.childNodes[i].className = phone_number_row_initial_class_name;
+                    }
+                }
+                if (containerFlag === 0) {
+                    container.className = location_container_initial_class_name + " " + none_class_name;
                 }
                 else {
-                    container.lastChild.childNodes[i].className = phone_number_row_initial_class_name;
+                    container.className = location_container_initial_class_name;
                 }
-            }
-            if (containerFlag === 0) {
-                container.className = location_container_initial_class_name + " " + none_class_name;
-            }
-            else {
-                container.className = location_container_initial_class_name;
             }
         }
     }
@@ -61,7 +65,6 @@ const searchNumber = (text, nodeText) => {
 }
 
 const searchText = (text, nodeText) => {
-    console.log(text, nodeText, nodeText.toUpperCase().includes(text.toUpperCase()))
     if (nodeText.toUpperCase().includes(text.toUpperCase())) {
         return 1;
     }
